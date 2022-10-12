@@ -1,0 +1,32 @@
+Source: libtie-toobject-perl
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: gregor herrmann <gregoa@debian.org>
+Section: perl
+Rules-Requires-Root: no
+Testsuite: autopkgtest-pkg-perl
+Priority: optional
+Build-Depends: debhelper (>= 10)
+Build-Depends-Indep: perl (>= 5.21.6) | libtest-simple-perl (>= 1.001010) | libtest-use-ok-perl,
+                     perl
+Standards-Version: 4.1.3
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-perl/packages/libtie-toobject-perl.git
+Vcs-Git: https://anonscm.debian.org/git/pkg-perl/packages/libtie-toobject-perl.git
+Homepage: https://metacpan.org/release/Tie-ToObject
+
+Package: libtie-toobject-perl
+Architecture: all
+Depends: ${misc:Depends},
+         ${perl:Depends}
+Description: module for tying to an existing object
+ While perldoc/tie allows tying to an arbitrary object, the class in question
+ must support this in it's implementation of TIEHASH, TIEARRAY or
+ whatever.
+ .
+ Tie::ToObject class provides a very tie constructor that simply returns the 
+ object it was given as it's first argument. This way side effects of calling 
+ $object->TIEHASH are avoided.
+ .
+ This is used in Data::Visitor in order to tie a variable to an already
+ existing object. This is also useful for cloning, when you want to clone the
+ internal state object instead of going through the tie interface for that
+ variable.
